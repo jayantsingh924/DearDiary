@@ -1,6 +1,7 @@
 ﻿using DearDiary.API.Data;
 using DearDiary.API.Models.Domain;
 using DearDiary.API.Models.DTO;
+using DearDiary.API.Repositories.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,25 +11,24 @@ namespace DearDiary.API.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private readonly ApplicationDbContext dbContext;
+        private ICategoryRepository categoryRepository;
 
-        public CategoriesController(ApplicationDbContext dbContext)
+        public CategoriesController(ICategoryRepository categoryRepository)
         {
-            this.dbContext = dbContext;
+            this.categoryRepository = categoryRepository;
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryRequestDto request)
         {
-            // Implementation for creating a category will go here.
             //Map DTO to Domain Model
-            
             var category = new Category
             {
                 Name = request.Name,
                 UrlHandle = request.UrlHandle
             };
-            await dbContext.Categories.AddAsync(category);
-            await dbContext.SaveChangesAsync();
+            
+            await categoryRepository.CreateAsync(category);
 
             //Domain Model to DTO
             var response = new CategoryDto
