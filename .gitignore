@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/API/DearDiary.API/.vs/DearDiary.API
+/API/DearDiary.API/DearDiary.API/bin/Debug/net9.0
+/API/DearDiary.API/DearDiary.API/obj
