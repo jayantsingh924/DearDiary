@@ -175,13 +175,40 @@ User Query → Embeddings → Relevant Notes → LLM Response
 
 ---
 
+## 🐳 Docker Setup
+
+Project ab **Docker-ready** hai! 🎉
+
+### Quick Start
+
+```bash
+# Project root se
+docker compose up --build
+```
+
+**Access:**
+- API: http://localhost:7078/swagger
+- SQL Server: localhost:1433
+
+**Detailed Guide:** [DOCKER.md](./DOCKER.md)
+
+### Features
+- ✅ Backend API Dockerized
+- ✅ SQL Server container
+- ✅ Docker Compose orchestration
+- ✅ One-command setup
+- ✅ Portable across machines
+
+---
+
 ## 🚀 Future Enhancements
 
 - Authentication & authorization
 - Public / private notes
 - Markdown editor
 - Export notes
-- Docker & CI/CD
+- Frontend Docker setup
+- CI/CD pipeline
 - Custom domain deployment
 
 ---
